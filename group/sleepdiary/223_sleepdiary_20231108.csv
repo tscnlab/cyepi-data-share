@@ -1,0 +1,9 @@
+record_id;redcap_repeat_instrument;redcap_repeat_instance;bedtime;sleep;sleepdelay;awakenings;awake_duration;offset;out_ofbed;sleepquality___1;sleepquality___2;sleepquality___3;sleepquality___4;sleepquality___5;comments;daytype2___1;daytype2___2;startdate;enddate
+223;;;;;;;;;;;;;;;;;;;
+223;morning_sleep_diary;1;30.10.2023 22:40;30.10.2023 23:10;30;1;1;31.10.2023 09:20;31.10.2023 09:33;0;0;0;1;0;I woke yo later than usual since I don't have an early class today;0;1;31.10.2023 09:33;31.10.2023 09:38
+223;morning_sleep_diary;2;01.11.2023 03:50;01.11.2023 04:00;10;0;0;01.11.2023 11:00;01.11.2023 11:01;0;1;0;0;0;I had some wine last night, so I think it affected my sleep quality.;1;0;01.11.2023 11:02;01.11.2023 11:04
+223;morning_sleep_diary;3;02.11.2023 01:30;02.11.2023 01:45;15;0;0;02.11.2023 06:45;02.11.2023 07:05;0;0;1;0;0; -;0;1;02.11.2023 07:51;02.11.2023 07:53
+223;morning_sleep_diary;4;03.11.2023 02:00;03.11.2023 02:15;15;0;0;03.11.2023 09:00;03.11.2023 09:10;0;0;1;0;0;It was hard to get up this morning for my class.;0;1;03.11.2023 09:53;03.11.2023 09:56
+223;morning_sleep_diary;5;04.11.2023 01:55;04.11.2023 02:15;10;0;0;04.11.2023 10:00;04.11.2023 10:25;0;0;0;1;0; -;1;0;04.11.2023 10:25;04.11.2023 10:26
+223;morning_sleep_diary;6;05.11.2023 01:30;05.11.2023 02:00;10;0;0;05.11.2023 10:00;05.11.2023 11:00;0;0;0;1;0; -;1;0;05.11.2023 11:01;05.11.2023 11:02
+223;morning_sleep_diary;7;06.11.2023 00:30;06.11.2023 01:00;15;0;0;06.11.2023 07:50;06.11.2023 07:55;0;0;1;0;0; -;0;1;06.11.2023 08:18;06.11.2023 08:21
