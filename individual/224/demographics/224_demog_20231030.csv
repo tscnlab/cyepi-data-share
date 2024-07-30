@@ -1,0 +1,4 @@
+record_id;redcap_repeat_instrument;redcap_repeat_instance;redcap_survey_identifier;your_demographics_timestamp;age;sex;gender;native_language;language_specification;employment_status;comments;your_demographics_complete;online_screening_consent_form_timestamp;consent;online_screening_consent_form_complete;your_lifestyle_and_health_timestamp;medication;medication_type;tobacco;drugs;disorder;gen_health;visual_acuity;availability___4;availability___5;availability___6;availability___7;availability___8;availability___9;availability___10;availability___11;availability___12;your_lifestyle_and_health_complete
+224;;;;;;;;;;;;;20.10.2023 10:31;0;2;;;;;;;;;;;;;;;;;;
+224;your_demographics;1;;20.10.2023 10:33;24;2;2;0;3;3;I am a master's student in the GTC (first year) in, case it interferes with your study;2;;;;;;;;;;;;;;;;;;;;;
+224;your_lifestyle_and_health;1;;;;;;;;;;;;;;20.10.2023 10:34;0;;0;0;0;0;1;0;0;0;1;1;1;1;1;1;2
