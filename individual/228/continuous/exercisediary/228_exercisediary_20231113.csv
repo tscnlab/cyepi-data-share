@@ -1,0 +1,9 @@
+record_id;redcap_repeat_instrument;redcap_repeat_instance;instructions;intensity;location;type;commute;sedentary;startdate_3;enddate_3
+228;;;;;;;;;;
+228;exercise_diary;1;1;3;1;Walking to and back from work;60;480;06.11.2023 21:56;06.11.2023 21:57
+228;exercise_diary;2;1;1;2;Kungfu ;75;480;07.11.2023 23:00;07.11.2023 23:01
+228;exercise_diary;3;1;2;1;walk to work;60;480;08.11.2023 22:33;08.11.2023 22:34
+228;exercise_diary;4;1;1;2;kungfu;90;420;10.11.2023 00:00;10.11.2023 00:01
+228;exercise_diary;5;1;2;1;Walking ;60;560;11.11.2023 00:02;11.11.2023 00:02
+228;exercise_diary;6;1;3;2;Walking  ;20;300;11.11.2023 23:33;11.11.2023 23:33
+228;exercise_diary;7;1;3;1;Walking ;60;420;12.11.2023 22:32;12.11.2023 22:33
