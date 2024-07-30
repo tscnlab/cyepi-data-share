@@ -1,0 +1,5 @@
+record_id;redcap_repeat_instrument;redcap_repeat_instance;exp_time;current;past;type;location;loc_spec;descr;feedback;identity___1;identity___2;identity___3;identity___4;identity___5;identity_spec;social_type___1;social_type___2;social_type___3;social_type___4;removal;future_use;startdate_2;enddate_2
+206;;;;;;;;;;;;;;;;;;;;;;;;
+206;experience_log;1;1;"2023-08-28 14:20";;2;3;;"A guy looked back twice. ";0;0;0;0;0;0;;0;0;0;0;0;"I wonder how many people would stare if it's a crowded spay";"2023-08-28 14:20:09";"2023-08-28 14:22:26"
+206;experience_log;2;1;"2023-08-29 14:28";;3;1;;"Need to clean the lenses rather frequently else the blurriness is noticeable ";0;0;0;0;0;0;;0;0;0;0;1;"Need to be careful not to touch or smudge the lenses";"2023-08-29 14:28:18";"2023-08-29 14:30:14"
+206;experience_log;3;1;"2023-08-29 17:13";;3;1;;"Wearing the glasses for a long time hurts my ears ";0;0;0;0;0;0;;0;0;0;0;1;"will not be wearing it continuesly for several hours at a time.";"2023-08-29 17:13:14";"2023-08-29 17:14:34"

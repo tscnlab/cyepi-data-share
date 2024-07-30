@@ -1,0 +1,5 @@
+record_id;redcap_repeat_instrument;redcap_repeat_instance;ema_light;currentight;check_mixedlight;additional_light;currentmood;anxious;elated;sad;angry;irritable;energetic;kss_instr;kss;startdate_4;enddate_4
+208;;;;;;;;;;;;;;;;;
+208;current_light_mood_and_alertness;1;1;I;0;;1;0;4;0;0;0;5;1;2;"2023-09-04 14:00:19";"2023-09-04 14:01:20"
+208;current_light_mood_and_alertness;2;1;I;0;;1;1;2;0;0;0;4;1;2;"2023-09-04 17:19:22";"2023-09-04 17:20:09"
+208;current_light_mood_and_alertness;3;1;I;0;;1;0;5;0;0;0;5;1;2;"2023-09-04 20:00:32";"2023-09-04 20:00:51"

@@ -1,0 +1,5 @@
+record_id;redcap_repeat_instrument;redcap_repeat_instance;exp_time;current;past;type;location;loc_spec;descr;feedback;identity___1;identity___2;identity___3;identity___4;identity___5;identity_spec;social_type___1;social_type___2;social_type___3;social_type___4;removal;future_use;startdate_2;enddate_2
+208;;;;;;;;;;;;;;;;;;;;;;;;
+208;experience_log;1;2;;04.09.2023 13:00;1;2;;Colleague remarked that glasses suit me (i don't usually wear glasses);1;0;1;0;0;0;;0;0;1;0;0;NA;04.09.2023 20:01;04.09.2023 20:02
+208;experience_log;2;2;;04.09.2023 14:30;2;2;;Colleague asked if he's being recorded;1;0;1;0;0;0;;0;1;0;0;0;NA;04.09.2023 20:02;04.09.2023 20:03
+208;experience_log;3;2;;04.09.2023 14:30;2;2;;Colleague asked what the glasses are for;1;0;1;0;0;0;;0;1;0;0;0;NA;04.09.2023 20:03;04.09.2023 20:03
