@@ -1,0 +1,9 @@
+record_id;redcap_repeat_instrument;redcap_repeat_instance;instructions;intensity;location;type;commute;sedentary;startdate_3;enddate_3
+204;;;;;;;;;;
+204;exercise_diary;1;1;2;1;Cycling;280.0;300.0;14.08.2023 23:47;14.08.2023 23:48
+204;exercise_diary;2;1;2;1;Cycling ;300.0;60.0;15.08.2023 23:31;15.08.2023 23:32
+204;exercise_diary;3;1;2;1;Cycling ;60.0;240.0;17.08.2023 00:36;17.08.2023 00:36
+204;exercise_diary;4;1;2;1;Cycling ;180.0;240.0;17.08.2023 22:42;17.08.2023 22:43
+204;exercise_diary;5;1;2;1;cycling;180.0;120.0;19.08.2023 08:33;19.08.2023 08:34
+204;exercise_diary;6;1;2;1;Cycling ;180.0;240.0;20.08.2023 00:22;20.08.2023 00:23
+204;exercise_diary;7;1;2;1;cycling ;90.0;300.0;21.08.2023 01:28;21.08.2023 01:29

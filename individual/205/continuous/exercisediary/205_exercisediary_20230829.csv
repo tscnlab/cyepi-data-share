@@ -1,0 +1,4 @@
+record_id;redcap_repeat_instrument;redcap_repeat_instance;instructions;intensity;location;type;commute;sedentary;startdate_3;enddate_3
+205;;;;;;;;;;
+205;exercise_diary;1;1;3;1;"Walking the dog";30.0;100.0;"2023-08-28 21:52:05";"2023-08-28 21:53:14"
+205;exercise_diary;2;1;4;;;5.0;180.0;"2023-08-29 23:19:44";"2023-08-29 23:20:17"
