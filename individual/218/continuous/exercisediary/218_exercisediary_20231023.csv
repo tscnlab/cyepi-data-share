@@ -1,0 +1,10 @@
+record_id;redcap_repeat_instrument;redcap_repeat_instance;instructions;intensity;location;type;commute;sedentary;startdate_3;enddate_3
+218;;;;;;;;;;
+218;exercise_diary;1;1;3;1;Walking;25;560;17.10.2023 00:33;17.10.2023 00:35
+218;exercise_diary;2;1;2;2;Weight training in the gym;30;540;18.10.2023 00:11;18.10.2023 00:12
+218;exercise_diary;3;1;1;2;Running, cardio;20;420;18.10.2023 23:36;18.10.2023 23:36
+218;exercise_diary;4;1;3;1;Walking;30;500;20.10.2023 00:23;20.10.2023 00:24
+218;exercise_diary;5;1;2;1;Running, walking;50;240;21.10.2023 00:45;21.10.2023 00:46
+218;exercise_diary;6;1;1;2;Garba dance at an event;180;480;22.10.2023 14:08;22.10.2023 14:10
+218;exercise_diary;7;1;1;1;Running;20;300;23.10.2023 01:59;23.10.2023 01:59
+;;;;;;;;;;
