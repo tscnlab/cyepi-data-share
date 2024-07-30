@@ -1,0 +1,9 @@
+record_id;redcap_repeat_instrument;redcap_repeat_instance;instructions;intensity;location;type;commute;sedentary;startdate_3;enddate_3
+213;;;;;;;;;;
+213;exercise_diary;1;1;3;1;Walk;40;300;11.09.2023 22:11;11.09.2023 22:14
+213;exercise_diary;2;1;2;2;Animal management ;20;240;12.09.2023 20:09;12.09.2023 20:11
+213;exercise_diary;3;1;2;2;Experiment ;120;360;13.09.2023 21:52;13.09.2023 21:53
+213;exercise_diary;4;1;3;2;Experiment ;20;420;14.09.2023 22:34;14.09.2023 22:35
+213;exercise_diary;5;1;3;1;Walk ;30;300;17.09.2023 20:23;17.09.2023 20:25
+213;exercise_diary;6;1;2;2;Experiment ;20;240;17.09.2023 22:14;17.09.2023 22:15
+213;exercise_diary;7;1;4;;;20;480;17.09.2023 22:15;17.09.2023 22:16

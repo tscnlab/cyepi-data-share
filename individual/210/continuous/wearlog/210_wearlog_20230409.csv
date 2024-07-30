@@ -1,0 +1,6 @@
+record_id;wearlog_type;wearlog_event;wearlog_off;wearlog_on;wearlog_bed;radius;wearlog_bag;wearlog_place;wearlog_motion;wearlog_past;wearlog_bp;wearlog_past_off;wearlog_past_on;wearlog_past_sleep;radius_past_time;radius_past;radius_past_back;wearlog_past_bag;wearlog_past_location;wearlog_past_motion;startdate;enddate;wear_log_complete
+210;;;;;;;;;;;;;;;;;;;;;;;
+210;0;1;;"2023-09-04 15:20";;;;;;;;;;;;;;;;;"2023-09-04 15:20:46";"2023-09-04 15:21:02";0
+210;0;2;;;"2023-09-05 00:48";;;;;;;;;;;;;;;;"2023-09-05 00:48:40";"2023-09-05 00:48:56";0
+210;0;1;;"2023-09-05 06:41";;;;;;;;;;;;;;;;;"2023-09-05 06:41:22";"2023-09-05 06:41:43";0
+210;0;0;"2023-09-05 06:59";;;;1;;0;;;;;;;;;;;;"2023-09-05 06:59:59";"2023-09-05 07:00:19";0
