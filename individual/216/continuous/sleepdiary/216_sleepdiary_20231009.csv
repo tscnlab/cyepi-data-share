@@ -1,0 +1,8 @@
+record_id;redcap_repeat_instrument;redcap_repeat_instance;bedtime;sleep;sleepdelay;awakenings;awake_duration;offset;out_ofbed;sleepquality___1;sleepquality___2;sleepquality___3;sleepquality___4;sleepquality___5;comments;daytype2___1;daytype2___2;startdate;enddate
+216;morning_sleep_diary;1;03.10.2023 03:00;03.10.2023 03:00;9;2;10;03.10.2023 11:09;03.10.2023 11:30;0;0;0;1;0;I was awakened by the 11:00 current conditions log alarm;1;0;03.10.2023 11:13;03.10.2023 11:51
+216;morning_sleep_diary;2;04.10.2023 03:10;04.10.2023 03:10;35;3;30;04.10.2023 13:40;04.10.2023 13:40;0;0;0;1;0; -;0;1;04.10.2023 13:52;04.10.2023 13:56
+216;morning_sleep_diary;3;05.10.2023 01:00;05.10.2023 02:15;30;1;10;05.10.2023 11:00;05.10.2023 11:10;0;0;0;1;0;Some of my answers in these logs are guided by the data provided by my Oura ring (a sleep and activity tracker).;0;1;05.10.2023 11:16;05.10.2023 11:20
+216;morning_sleep_diary;4;06.10.2023 02:30;06.10.2023 02:30;40;2;20;06.10.2023 11:03;06.10.2023 11:40;0;0;0;1;0; -;0;1;06.10.2023 11:46;06.10.2023 11:48
+216;morning_sleep_diary;5;07.10.2023 01:00;07.10.2023 01:55;7;2;120;07.10.2023 12:56;07.10.2023 13:03;0;0;0;1;0; -;1;0;07.10.2023 13:03;07.10.2023 13:06
+216;morning_sleep_diary;6;08.10.2023 04:00;08.10.2023 04:00;90;1;15;08.10.2023 11:20;08.10.2023 11:25;0;0;1;0;0; -;1;0;08.10.2023 11:25;08.10.2023 11:26
+216;morning_sleep_diary;7;09.10.2023 03:00;09.10.2023 03:00;6;1;20;09.10.2023 11:00;09.10.2023 11:10;0;0;0;1;0;This last week was somewhat stressful and unusual for me. My data is probably kinda of noisy because of that. In particular, I want to apologize for getting up so late (at 11 from the Current Conditions alarm or even later) every day.;0;1;09.10.2023 11:04;09.10.2023 11:10
