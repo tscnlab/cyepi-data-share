@@ -1,0 +1,5 @@
+record_id;redcap_repeat_instrument;redcap_repeat_instance;exp_time;current;past;type;location;loc_spec;descr;feedback;identity___1;identity___2;identity___3;identity___4;identity___5;identity_spec;social_type___1;social_type___2;social_type___3;social_type___4;removal;future_use;startdate_2;enddate_2
+227;;;;;;;;;;;;;;;;;;;;;;;;
+227;experience_log;1;1;31.10.2023 09:08;;2;1;;My roommates saw my glasses and they were really surprised. At first they thought that I was recording them. It was funny, I explained them the study.;1;1;0;0;0;0;;0;1;0;0;0;It won't;31.10.2023 09:08;31.10.2023 09:10
+227;experience_log;2;1;31.10.2023 15:48;;3;4;Wholeday;The glasses are a bit heavy, hence they are making me a nose and headache.;0;0;0;0;0;0;;0;0;0;0;0;Once a day I might take them off for 10-20 min;31.10.2023 15:48;31.10.2023 15:50
+227;experience_log;3;1;02.11.2023 14:51;;3;1;;It makes my nose to hurt, due to the heaviness of the glasses;0;0;0;0;0;0;;0;0;0;0;1;Sometimes it makes me to remove glasses for 2-3 minutes.;02.11.2023 14:51;02.11.2023 14:53
