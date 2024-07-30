@@ -1,0 +1,9 @@
+record_id;redcap_repeat_instrument;redcap_repeat_instance;bedtime;sleep;sleepdelay;awakenings;awake_duration;offset;out_ofbed;sleepquality___1;sleepquality___2;sleepquality___3;sleepquality___4;sleepquality___5;comments;daytype2___1;daytype2___2;startdate;enddate
+225;;;;;;;;;;;;;;;;;;;
+225;morning_sleep_diary;1;30.10.2023 22:14;30.10.2023 22:21;25;3;7;31.10.2023 05:14;31.10.2023 05:30;0;0;0;1;0;I slept fairly well considering waking up a few times;0;1;31.10.2023 10:14;31.10.2023 10:16
+225;morning_sleep_diary;2;31.10.2023 21:20;31.10.2023 22:18;20;1;8;01.11.2023 06:57;01.11.2023 06:59;0;0;0;1;0;I fell happy I got to sleep in today;1;0;01.11.2023 06:57;01.11.2023 06:59
+225;morning_sleep_diary;3;01.11.2023 23:04;01.11.2023 23:05;30;1;10;02.11.2023 05:28;02.11.2023 05:30;0;0;1;0;0;I don't feel as refreshed today. I think due to going to sleep later than usual ;0;1;02.11.2023 05:28;02.11.2023 05:31
+225;morning_sleep_diary;4;02.11.2023 22:40;02.11.2023 22:43;15;1;15;03.11.2023 05:24;03.11.2023 05:26;0;0;0;1;0;Despite being woken once I feel semi-refreshed. ;0;1;03.11.2023 05:24;03.11.2023 05:26
+225;morning_sleep_diary;5;03.11.2023 22:40;03.11.2023 22:44;15;0;0;04.11.2023 05:21;04.11.2023 05:34;0;0;0;1;0;I feel fairly refreshed. Although I slept later than I would have liked.;1;0;04.11.2023 05:21;04.11.2023 05:23
+225;morning_sleep_diary;6;04.11.2023 22:34;04.11.2023 22:40;15;3;20;05.11.2023 06:35;05.11.2023 06:40;0;0;1;0;0;I feel a little sleepy;1;0;05.11.2023 06:35;05.11.2023 06:37
+225;morning_sleep_diary;7;05.11.2023 22:29;05.11.2023 22:36;10;0;0;06.11.2023 05:05;06.11.2023 05:44;0;0;0;1;0;I feel refreshed ;0;1;06.11.2023 05:44;06.11.2023 05:45

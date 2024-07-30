@@ -1,0 +1,9 @@
+record_id;redcap_repeat_instrument;redcap_repeat_instance;bedtime;sleep;sleepdelay;awakenings;awake_duration;offset;out_ofbed;sleepquality___1;sleepquality___2;sleepquality___3;sleepquality___4;sleepquality___5;comments;daytype2___1;daytype2___2;startdate;enddate
+201;;;;;;;;;;;;;;;;;;;
+201;morning_sleep_diary;1;14.08.2023 22:55;14.08.2023 23:00;10.0;1.0;15.0;15.08.2023 06:55;15.08.2023 07:00;0;0;0;1;0;N/A;0;1;15.08.2023 06:59;15.08.2023 07:02
+201;morning_sleep_diary;2;15.08.2023 23:15;15.08.2023 23:40;20.0;1.0;60.0;16.08.2023 07:00;16.08.2023 07:03;0;1;0;0;0;while waking up once during the night is not unusual for me, it is very rare I don't fall back asleep almost immediately afterwards.;0;1;16.08.2023 07:03;16.08.2023 07:10
+201;morning_sleep_diary;3;16.08.2023 22:00;16.08.2023 22:05;20.0;1.0;30.0;17.08.2023 06:24;17.08.2023 06:24;0;0;0;1;0;N/A;0;1;17.08.2023 06:24;17.08.2023 06:26
+201;morning_sleep_diary;4;18.08.2023 00:25;18.08.2023 00:45;5.0;0.0;0.0;18.08.2023 07:33;18.08.2023 07:33;0;0;1;0;0;N/A;0;1;18.08.2023 07:33;18.08.2023 07:35
+201;morning_sleep_diary;5;19.08.2023 00:05;19.08.2023 00:25;5.0;0.0;0.0;19.08.2023 07:10;19.08.2023 07:15;0;0;1;0;0;N/A;1;0;19.08.2023 07:17;19.08.2023 07:18
+201;morning_sleep_diary;6;20.08.2023 01:00;20.08.2023 01:10;5.0;0.0;0.0;20.08.2023 09:30;20.08.2023 09:52;0;0;0;1;0;n/a;1;0;20.08.2023 09:52;20.08.2023 09:53
+201;morning_sleep_diary;7;20.08.2023 23:30;20.08.2023 23:40;20.0;0.0;0.0;21.08.2023 07:31;21.08.2023 07:31;0;0;0;1;0;n/a;0;1;21.08.2023 07:31;21.08.2023 07:33
