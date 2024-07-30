@@ -1,0 +1,28 @@
+record_id;redcap_repeat_instrument;redcap_repeat_instance;ema_light;currentight;check_mixedlight;additional_light;currentmood;anxious;elated;sad;angry;irritable;energetic;kss_instr;kss;startdate_4;enddate_4
+221;;;;;;;;;;;;;;;;;
+221;current_light_mood_and_alertness;1;1;L;1;I;1;0;4;0;0;0;4;1;4;23.10.2023 14:10;23.10.2023 14:13
+221;current_light_mood_and_alertness;2;1;L;1;I;1;0;1;0;0;3;0;1;7;23.10.2023 17:00;23.10.2023 17:02
+221;current_light_mood_and_alertness;3;1;L;1;E;1;1;1;0;0;1;2;1;5;23.10.2023 20:01;23.10.2023 20:04
+221;current_light_mood_and_alertness;4;1;L;1;I;1;1;4;0;0;0;3;1;5;24.10.2023 11:01;24.10.2023 11:02
+221;current_light_mood_and_alertness;5;1;L;1;I;1;1;3;1;0;3;3;1;5;24.10.2023 14:00;24.10.2023 14:01
+221;current_light_mood_and_alertness;6;1;I;1;L;1;0;5;0;0;0;4;1;3;24.10.2023 17:07;24.10.2023 17:08
+221;current_light_mood_and_alertness;7;1;L;1;E;1;1;4;0;0;1;2;1;6;24.10.2023 20:08;24.10.2023 20:08
+221;current_light_mood_and_alertness;8;1;I;1;E;1;1;2;0;0;0;3;1;5;25.10.2023 10:43;25.10.2023 10:43
+221;current_light_mood_and_alertness;9;1;I;1;E;1;0;4;0;0;1;4;1;3;25.10.2023 14:03;25.10.2023 14:03
+221;current_light_mood_and_alertness;10;1;L;1;O;1;0;4;0;0;0;5;1;3;25.10.2023 17:01;25.10.2023 17:02
+221;current_light_mood_and_alertness;11;1;D;1;L;1;0;4;0;0;0;4;1;4;25.10.2023 19:56;25.10.2023 19:56
+221;current_light_mood_and_alertness;12;1;I;1;E;1;0;5;0;0;0;5;1;3;26.10.2023 11:22;26.10.2023 11:23
+221;current_light_mood_and_alertness;13;1;I;1;E;1;0;3;0;1;1;3;1;3;26.10.2023 14:00;26.10.2023 14:02
+221;current_light_mood_and_alertness;14;1;L;1;E;1;0;2;0;0;0;3;1;4;26.10.2023 19:56;26.10.2023 19:56
+221;current_light_mood_and_alertness;15;1;I;1;E;1;0;3;0;0;0;3;1;5;27.10.2023 11:14;27.10.2023 11:14
+221;current_light_mood_and_alertness;16;1;L;1;O;1;1;2;2;2;4;2;1;6;27.10.2023 14:02;27.10.2023 14:07
+221;current_light_mood_and_alertness;17;1;L;1;E;1;1;2;1;1;4;2;1;5;27.10.2023 17:04;27.10.2023 17:05
+221;current_light_mood_and_alertness;18;1;L;1;D;1;0;3;0;0;0;3;1;4;27.10.2023 20:00;27.10.2023 20:01
+221;current_light_mood_and_alertness;19;1;I;1;L;1;0;1;0;0;0;0;1;7;28.10.2023 11:54;28.10.2023 11:54
+221;current_light_mood_and_alertness;20;1;I;1;E;1;1;4;0;0;1;3;1;5;28.10.2023 15:00;28.10.2023 15:01
+221;current_light_mood_and_alertness;21;1;O;1;L;1;0;2;1;1;3;3;1;4;28.10.2023 18:29;28.10.2023 18:29
+221;current_light_mood_and_alertness;22;1;D;1;E;1;0;1;4;2;4;1;1;5;28.10.2023 20:06;28.10.2023 20:07
+221;current_light_mood_and_alertness;23;1;I;1;E;1;1;2;1;0;3;3;1;5;29.10.2023 11:04;29.10.2023 11:05
+221;current_light_mood_and_alertness;24;1;I;1;E;1;0;3;0;0;1;3;1;5;29.10.2023 14:31;29.10.2023 14:32
+221;current_light_mood_and_alertness;25;1;L;1;W;1;0;2;0;1;2;3;1;4;29.10.2023 18:20;29.10.2023 18:20
+221;current_light_mood_and_alertness;26;1;L;1;D;1;1;1;0;0;2;3;1;4;29.10.2023 20:01;29.10.2023 20:01
