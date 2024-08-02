@@ -58,7 +58,7 @@ This folder contains grouped data, i.e. any data that are collected at the group
 This folder contains individual-level data for N=26 participant, each stored in a separate folder named after the participant ID (PID). Furthermore, it also contains a folder where the ActLumus files for the environmental light light logger (named “ambient”) are stored. The data within each participant folder follows the following structure. 
 
 | Folder name | Filename (sample) | Description and time of completion | Notes |
-| --- | --- | --- | --- |
+| --- | -- | ------ | --- |
 | chronotype | PID_mctq_yyyymmdd.csv | Munich Chronotype Questionnaire (MCTQ) completed at study intake (Monday, day 1) |  |
 | chronotype | PID_meq_yyyymmdd.csv | Morning Eveningness Questionnaire (MEQ) completed at study intake (Monday, day 1) |  |
 | continuous/actlumus/ | PID_actlumus_Log_automatedtimestamp.txt | ActLumus data, collected continuously (every 10 seconds) over the 8 days |  |
