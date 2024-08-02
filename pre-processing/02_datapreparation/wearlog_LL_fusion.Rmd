@@ -1,0 +1,97 @@
+---
+title: "wearlog_coding"
+author: "Carolina Guidolin"
+date: "2024-03-10"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Wear log coding and fusion 
+In this script, we code the Wear log States as "on", "off" or "sleep", turn them into an interval, and then incorporate this information into the light logger (LL) dataset.
+```{r}
+  
+wrlg_states <- wrlg_entries_clean %>%
+   mutate(
+      State = case_when(
+      State == 1 & (lag(State) == 0 | lag(State) == 2) ~ "on", #if on and previous one was off or sleep, it's on 
+      State == 0 & (lead(State) == 2 | lag(State) == 1) ~ "off", #if off and next one is sleep, or previous one is on, it's off
+      State == 2 & (lead(State) == 1) ~ "sleep", #if sleep and next one is on, then it's sleep
+      .default = NA_character_)) 
+
+#To check that the State coding into on, off and sleep worked, we want to see where NA values where assigned. We expect NA values for participant's first entry, as the previous entry is absent, and so defaulted to NA-character as specified by case_when() in the step above
+
+first_tmp_int <- wrlg_states %>%
+  group_by(Id) %>%
+  filter(row_number() == first(row_number())) %>%
+  ungroup()
+
+#Our assumption was correct: all first timestamps are NA values.
+
+#The last timestamp should be "on" for all participants
+last_tmp_int <- wrlg_states %>%
+  group_by(Id) %>%
+  filter(row_number() == last(row_number())) %>%
+  ungroup()
+
+#For participant 225, it seems like the last timestamp is not on. Going back to the original wearlog file, we notice that there is a missing entry for the participant's "sleep" entry on Sunday (the second to last day), which leads to the first timestamp of the day after to be a "NA" value. As we have previously done, we take this value from the sleep diary, in this case from the column "sleep": 05.11.2023 22:29:00.
+
+newrow_225 <- data.frame(
+  Id = as.factor(225),
+  State = as.character(2),
+  Datetime = as.POSIXct("2023-11-05 22:29:00", tz = tz)
+)
+
+wrlg_entries_clean_1 <- bind_rows(wrlg_entries_clean, newrow_225) %>%
+  arrange(Id, Datetime) #n of obs is now 787, meaning that we have successfully added our entry
+
+#We now have to code again:
+wrlg_states <- wrlg_entries_clean_1 %>%
+   mutate(
+      State = case_when(
+      State == 1 & (lag(State) == 0 | lag(State) == 2) ~ "on", #if on and previous one was off or sleep, it's on 
+      State == 0 & (lead(State) == 2 | lag(State) == 1) ~ "off", #if off and next one is sleep, or previous one is on, it's off
+      State == 2 & (lead(State) == 1) ~ "sleep", #if sleep and next one is on, then it's sleep
+      .default = NA_character_)) 
+
+#And check that all last timestamps are now indeed on 
+last_tmp_int <- wrlg_states %>%
+  group_by(Id) %>%
+  filter(row_number() == last(row_number())) %>%
+  ungroup()
+
+#Finally, we want to check whether we have other NA values in the dataset
+na_values <- wrlg_states %>%
+  filter(is.na(State)) #which results in 26 NA values, which we know are the 26 on entries. 
+
+#We now change these 26 NA values to "On" entries
+#That's correct, and we want to change that to an "on" State
+wrlg_states <- wrlg_states %>%
+  group_by(Id) %>%
+  mutate(State = ifelse(row_number() == first(row_number()), "on", State)) %>%
+  ungroup()
+
+#We now check again is any NA values are still present
+na_values <- wrlg_states %>%
+  filter(is.na(State))
+
+#which gives us a result of 0 other NA values! Great!
+```
+
+## Interval transformation and fusion with the LL dataset Turning the Wear log states into an interval, and merging them with the LL dataset
+```{r}
+#Using the sc2interval function, we can turn the Datetime column of joined_df into an interval of time
+wrlg_int <- wrlg_states %>%
+  group_by(Id) %>% #need to do this to prevent that Datetime from 2 different participants get merged into the same interval
+  LightLogR::sc2interval(full = TRUE, length.restriction = 7 * (60*60*24)) %>%
+  ungroup()
+
+#NOTE: By setting full sc2interval(full = TRUE) we ensure that the last interval for each participant end on Sunday at 00:00, which is the last day. But there is also now a new interval for the last participation day, bringing it from the ON timestamp to midnight of that day. This will be ignored in when applying interval2state(), as the dataset.LL.all has already been filtered for the end times of day 8 to be the last wearlog on entry for that day. 
+  
+#Now that the joined_df is ready, we are ready to merge it to the light logger dataset
+dataset.LL.wrlg <- dataset.LL.all %>% 
+  LightLogR::interval2state(wrlg_int) 
+```
+

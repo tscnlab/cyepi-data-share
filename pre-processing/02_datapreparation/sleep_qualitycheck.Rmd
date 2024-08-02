@@ -1,0 +1,193 @@
+---
+title: "sleepstates_check"
+author: "Carolina Guidolin"
+date: "2024-05-27"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+## Perform a quality check for raw sleep diary files sanity check between wear log detected intervals and sleep and wake time from sleep diary 
+As part of the non-wear analysis, we visualised time spent in each of the non-wear states: off (device not worn), on (device worn) and off for sleep (device not worn during sleep). As a sanity check, the time that the device is not worn during sleep should be similar to the time that the participants reported actually sleeping, as indicated by the sleep diary. For this reason, we follow a similar approach to the code above to visualise the amount of time participants spend asleep or awake according to the sleep diary. 
+
+```{r}
+#Locate the sleep diary files
+path_sleep <- here("G:/cyepi/data/raw/group/sleepdiary")
+
+# Get the files names from directory
+sleepdiary = list.files(path_sleep, pattern="*.csv", full.names = TRUE)
+
+#Using LightLogR, we import the files and label each timestamp as wake or sleep
+sleepdiary_df <- LightLogR::import_Statechanges(sleepdiary,
+                                     Datetime.format = "dmyHM",
+                                     State.colnames = c("sleep", "out_ofbed"),
+                                     State.encoding = c("sleep", "wake"),
+                                     Id.colname = record_id,
+                                     sep = ";",
+                                     dec = ",",
+                                     tz = tz)
+
+```
+
+## Quality check of the raw files
+Here, we identify consecutive identidical States in the sleep diary
+```{r}
+error_messages_datetime <- character(0) # We create an empty vector where we can store the errors
+
+# Group by ID and then apply the quality check within each group
+sleepdiary_df %>%
+  group_by(Id) %>%
+  arrange(Datetime) %>%  # Ensure data is sorted by Datetime
+  mutate(PrevState = lag(State)) %>%
+  filter(State == PrevState) %>%
+  ungroup() %>%
+  rowwise() %>%
+  mutate(error_message = paste("Consecutive values at record_id:", Id, "datetime:", Datetime, "state:", State)) %>%
+  pull(error_message) -> error_messages_states
+
+# Check if there are error messages
+if (length(error_messages_states) > 0) {
+  # There are errors; print the error messages
+  for (error_message in error_messages_states) {
+    cat("Error:", error_message, "\n")
+  }
+} else {
+  cat("No consecutive value errors found.")
+}
+
+```
+
+```{r}
+#This code led to the following errors: 
+
+#Error: Consecutive values at record_id: 202 datetime: 2023-08-16 00:45:00 state: sleep 
+#Error: Consecutive values at record_id: 202 datetime: 2023-08-17 06:15:00 state: wake 
+#Error: Consecutive values at record_id: 205 datetime: 2023-08-31 09:47:00 state: wake 
+#Error: Consecutive values at record_id: 205 datetime: 2023-08-31 23:15:00 state: sleep 
+#Error: Consecutive values at record_id: 212 datetime: 2023-09-16 06:32:00 state: wake 
+#Error: Consecutive values at record_id: 212 datetime: 2023-09-17 22:20:00 state: sleep 
+
+#These were corrected directly on the csv file as they all stemmed from the participant accidentally logging the wrong data when reporting sleep and bed dates from the previous day. 
+```
+
+## Sleep diary interval transformation
+Similar to what was done for the wearlog intervals, we now turn the state changes of the sleep diary to an interval
+```{r}
+sleep_int <- sleepdiary_df %>%
+  LightLogR::sc2interval() %>%
+  filter(!is.na(State))
+```
+
+#Plotting 
+As part of the sanity check, we want to plot the distribution of sleep and wake for visualisation.
+```{r}
+#First, while all participants took part in the experiment for 7 days, they started at different times, and so it is important not just to approximate to 7 days (168 hours), but to calculate the specific 100% of "participation time" for each participant. For this, we first need to calculate the n of hours that each participant spends in the experiment.
+exp_duration <- filtered_time %>%
+  mutate(id_int = lubridate::interval(start, end),
+         id_duration = lubridate::int_length(id_int) %>% as_hms()) %>% #tot hours of participation for each participant
+  select(Id, id_duration)
+
+#Calculate the amount of time spent in each state (either awake or alseep), for each participant across the whole experiment duration
+int_duration_sleep <- sleep_int %>%
+#calculate length of each interval
+  mutate(int_length = int_length(Interval) %>% as_hms()) %>% 
+  #filter out the last "awake" interval, since it goes to midnight of the final exp day, which is not actual data
+  filter(row_number() != n()) %>% #this filters out the rows where row n is equal to tot number of rows, i.e. last enrty
+  group_by(Id, State, .add = TRUE) %>%
+  summarize(tot_intlength = sum(int_length) %>% as_hms()) %>%
+  ungroup() 
+
+#Loading in a package to create raincloud plots
+library(ggdist)
+
+# Normalise it to the total time they participated in the experiment
+int_duration_sleep_clean <- int_duration_sleep %>%
+  left_join(exp_duration, by ="Id") %>% #append the column containing total participation hours from the exp_duration df
+  #note that exp_duration has been calculate earlier and can be reused here 
+  mutate(id_duration_n= as.numeric(tot_intlength)/as.numeric(id_duration), #calculate percentage of time) #convert to numeric as division betwen difftime objects is not supported
+         id_duration_per = id_duration_n*100) 
+
+
+#Organise the order of the factor levels to determine what comes first in the plot
+int_duration_sleep$State <- factor(int_duration_sleep$State, levels = c("sleep", "wake"))
+
+#Plot
+sleep_wake_dist <- ggplot(data = int_duration_sleep_clean, aes(x=id_duration_per, y = State, fill = State)) +
+  xlim(0,100) +
+  ggdist::stat_halfeye(
+    aes(colour = State,
+        fill = State),
+    adjust = .5,
+    justification = -.25,
+    point_color = NA,
+    interval_color = NA
+    ) +
+  geom_boxplot(
+    aes(color = State),
+    width = .2,
+    alpha = .2,
+    outlier.shape = NA
+  ) +
+  geom_jitter(
+    aes(colour = State),
+    fill = "white",
+    height = .1,
+    alpha = .3,
+    size = 1.2
+  ) +
+  scale_fill_manual(
+    values = c("sleep" = "darkgoldenrod2", "wake" = "darkcyan")) +
+  scale_color_manual(
+    values = c("sleep" = "darkgoldenrod2", "wake" = "darkcyan")) +
+  scale_y_discrete(labels = c("sleep" = "Sleep", "wake" = "Wake")) +
+  coord_fixed(ratio = 12) + # reduce white space between categorical variables on y axis
+  theme_ggdist() +
+  ggpubr::rremove("ylab") +
+  ggpubr::rremove("y.ticks") +
+  labs(title = "Sleep and wake distribution across the week", x = "Percentage of time (%)") +
+  theme(legend.position = "none",
+        plot.title = element_text(hjust = 0.5, size = 24),
+        axis.text.x = element_text(size = 16),
+        axis.title = element_text(size = 18),
+        axis.text.y = element_text(size = 16))
+
+int_duration_sleep_clean$tot_intlength_hours <- as.numeric(int_duration_sleep_clean$tot_intlength) / 3600
+  
+second_x_axis_sleep <- ggplot(data = int_duration_sleep_clean, aes(x = tot_intlength_hours, y = 0.01)) +
+  geom_blank() +  # Create an empty plot
+  scale_x_continuous(limits = c(0, 166), breaks = c(0, 20, 40, 60, 80, 100, 120, 140, 166)) +
+  coord_fixed(ratio = 4) +
+  theme_ggdist() +
+  labs(x = "Time (hours)")  +
+  ggpubr::rremove("y.axis") +
+  ggpubr::rremove("ylab") + 
+  ggpubr::rremove("y.ticks") +
+  ggpubr::rremove("y.text") +
+  theme(axis.title.x = element_text(size = 18),
+        axis.text.x = element_text(size = 16)) 
+
+# Combine the plots
+sleep_dist_2axis <- sleep_wake_dist / second_x_axis_sleep 
+```
+
+## Save plots above
+```{r}
+ggsave(filename = "sleep_wake_dist.png",
+       plot = sleep_wake_dist ,
+       width = 8,
+       height = 5,
+       dpi = 600,
+       path= "G:/cyepi/code/outputs")
+
+ggsave(filename = "sleep_dist_2axis.png",
+       plot = sleep_dist_2axis,
+       width = 8,
+       height = 5,
+       dpi = 600,
+       path= "G:/cyepi/code/outputs")
+```
+
+
