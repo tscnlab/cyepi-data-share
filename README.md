@@ -72,6 +72,8 @@ This folder contains individual-level data for N=26 participant, each stored in 
 | **discharge/** | PID_feedback_yyyymmdd.csv | Completed at discharge (Monday, day 8).  |  |
 | **discharge/** | PID_mTFA_yyyymmdd.csv | Completed at discharge (Monday, day 8).  |  |
 
+The folder "ambient" contains the txt files and reports from the environmental light logger (ActLumus) placed on the rooftop of the laboratory, which measured data with a temporal frequency of 30 seconds. Furthermore, the xlxs file "cyepi_amb_schedule" contains, for every calendar week in which participants took part in the experiment, timestamps for when the experimenter cleaned the set-up and related comments. 
+
 ## Pre-processing
 This folder contains R scripts to pre-process the data, specifically to clean the wear log data, and integrate it with the light logger dataset using LightLogR. 
 ### 01_import
