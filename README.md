@@ -23,16 +23,14 @@ This dataset was collected as part of an observational study on personal light e
 |**Subjective hourly light exposure and activities** |Modified  Harvard Light  Exposure Questionnaire (modified H-LEA) |7  measurements over 7 days |Every evening |7 |
 |**Subjective wellbeing** |WHO-5  wellbeing index (WHO-5) |7  measurements over 7 days |Every evening |7 |
 |**Exercise frequency and type** |Exercise log |7  measurements over 7 days |Every evening |7 |
-|**Subjective light exposure** |Modified  Harvard Light  Exposure Questionnaire (modified  H-LEA). Experience |24  measurements over 7 days |4 times/day |22 |
-||sampling:  punctual measurement  on participants’  current light conditions ||||
+|**Subjective light exposure** |Modified  Harvard Light  Exposure Questionnaire (modified  H-LEA). Experience sampling:  punctual measurement  on participants’  current light conditions |24  measurements over 7 days |4 times/day |22 |
 |**Subjective alertness** |Karolinska Sleepiness  Scale (KSS).  Experience sampling:  punctual measurement  on participants'  current light conditions |22  measurements over 7 days |4 times/day |22 |
 |**Subjective mood** |MoodZoom questionnaire |22  measurements over 7 days |4 times/day |22 |
 |**Experience log** |Custom-made questionnaire  and open-ended questions  about positive and negative experiences wearing  the  light logger |Continuous measurement  over 7 days |Throughout  the experiment |Depending  on participant |
 |**Wear log** |Custom-made questionnaire  about time  of  taking  the device  off  and putting it back on |Continuous measurement  over 7 days |Throughout  the experiment |Depending  on participant |
 |**Subjective light sensitivity**|Visual Light Sensitivity Questionnaire  8 (VLSQ-8) |1  measurement over 7 days |Last  experimental day |1 |
 |**User experience of wearing the light logger** |Open-ended questions |1  measurement over 7 days |Last  experimental day |1 |
-|**Sleep environment** |Assessment  of sleep  environment |1  measurement over 7 days |Last  experimental day |1 |
-||questionnaire (ASE) ||||
+|**Sleep environment** |Assessment  of sleep  environment questionnaire (ASE)|1  measurement over 7 days |Last  experimental day |1 |
 |**Subjective light exposure** |Light  Exposure Behaviour Assessment (LEBA) |1  measurement over 7 days |Last  experimental day |1 |
 
 
