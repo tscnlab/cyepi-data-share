@@ -1,9 +1,7 @@
 # Experiment background
-
 This dataset was collected as part of an observational study on personal light exposure. A detailed description of the experiment is available as a preprint ([Guidolin et al., 2023](https://www.medrxiv.org/content/10.1101/2024.02.11.24302663v1)). 
 
 ## Summary of the dataset
-
 | Dataset name | cyepi |
 | --- | --- |
 | Period of data collection (total) | August 2023 to November 2023 |
@@ -13,7 +11,6 @@ This dataset was collected as part of an observational study on personal light e
 | Duration of experiment for each participant | N=7 days (Monday to Monday) |
 
 ## Measurement schedule
-
 |**Read-out** |**Measurement modality** |**Sampling frequency** |**Timing of sampling** |**N per participant**|
 | - | :- | - | - | - |
 |**Objective individual light exposure** |Light logger |Continuous measurement  over 7 days |Every 10 seconds  |Approx. 10080 |
@@ -36,9 +33,7 @@ This dataset was collected as part of an observational study on personal light e
 
 # Folder structure
 ## Group
-
 This folder contains grouped data, i.e. any data that are collected at the group level and/or were grouped to facilitate import during analyses.
-
 | Folder name | Content |
 | --- | --- |
 | actlumus | N=26 files from ActLumus, one for each participant |
@@ -50,9 +45,7 @@ This folder contains grouped data, i.e. any data that are collected at the group
 | wearlog | N=26 csv files, each corresponding to the wear log participants filled multiple times/day. |
 
 ## Individual
-
 This folder contains individual-level data for N=26 participant, each stored in a separate folder named after the participant ID (PID). Furthermore, it also contains a folder where the ActLumus files for the environmental light light logger (named “ambient”) are stored. The data within each participant folder follows the following structure. 
-
 | Folder name | Filename (sample) | Description and time of completion | Notes |
 | --- | -- | ------ | --- |
 | chronotype | PID_mctq_yyyymmdd.csv | Munich Chronotype Questionnaire (MCTQ) completed at study intake (Monday, day 1) |  |
@@ -79,9 +72,7 @@ This folder contains individual-level data for N=26 participant, each stored in 
 
 ## Pre-processing
 This folder contains R scripts to pre-process the data, specifically to clean the wear log data, and integrate it with the light logger dataset using LightLogR. 
-
 ### 01_import
 Contains R scripts to import data from the ActLumus light logger (import_LL), the ActTrust2 actimeter (import_activity), use of black bag to log non-wear time (import_blackbag) and the Wear log questionnaire (importwearlog). 
-
 ### 02_datapreparation 
 Contains R script to clean the sleep diary data (sleep_qualitycheck) and the wear log data (wearlog_qualitychecks) as well as fusing the wear log data with the light logger dataset (wearlog_LL_fusion). 
