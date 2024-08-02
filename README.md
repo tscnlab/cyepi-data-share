@@ -35,7 +35,6 @@ This dataset was collected as part of an observational study on personal light e
 
 
 # Folder structure
-
 ## Group
 
 This folder contains grouped data, i.e. any data that are collected at the group level and/or were grouped to facilitate import during analyses.
