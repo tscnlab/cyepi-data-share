@@ -77,3 +77,11 @@ This folder contains individual-level data for N=26 participant, each stored in 
 | discharge/ | PID_feedback_yyyymmdd.csv | Completed at discharge (Monday, day 8).  |  |
 | discharge/ | PID_mTFA_yyyymmdd.csv | Completed at discharge (Monday, day 8).  |  |
 
+## Pre-processing
+This folder contains R scripts to pre-process the data, specifically to clean the wear log data, and integrate it with the light logger dataset using LightLogR. 
+
+### 01_import
+Contains R scripts to import data from the ActLumus light logger (import_LL), the ActTrust2 actimeter (import_activity), use of black bag to log non-wear time (import_blackbag) and the Wear log questionnaire (importwearlog). 
+
+### 02_datapreparation 
+Contains R script to clean the sleep diary data (sleep_qualitycheck) and the wear log data (wearlog_qualitychecks) as well as fusing the wear log data with the light logger dataset (wearlog_LL_fusion). 
