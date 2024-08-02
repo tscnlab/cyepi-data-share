@@ -1,0 +1,106 @@
+---
+title: "import_baguse"
+author: "Carolina Guidolin"
+date: "2024-06-20"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Import information about the black bag use (2nd source of non-wear)
+First, we need to re-adjust the original Wear log file, where the black bag information is contained.
+```{r pressure, echo=FALSE}
+#First, turn it into a dataframe
+wearlog_df <- lapply(
+  wearlogfiles, 
+  function(x) read.csv(x, stringsAsFactors = FALSE, sep = ";")
+  ) %>% 
+  list_c()
+
+#Filter the columns of interest
+wearlog_bag <- wearlog_df %>%
+  select("record_id", "wearlog_off", "wearlog_past_off", "wearlog_bag", "wearlog_past_bag")
+
+#This leads to a lot of NA values in the dataframe: when wearlog_bag has value, wearlog_past_bag is NA and viceversa. We want to delete rows where these values are both NA, as they are not useful for us right now. 
+wearlog_bag_clean <- wearlog_bag %>%
+    rowwise()%>%
+    filter(xor(!is.na(wearlog_bag), !is.na(wearlog_past_bag)))
+
+
+#Combine the information from the retrospectively logged events and events logged "in real time"
+wearlog_bag_clean <- wearlog_bag_clean %>%
+                    mutate(timestamp_combined = case_match(wearlog_off,
+                                                           NA ~ wearlog_past_off, #if wearlog_off is NA, wearlog_past_off is taken
+                                                           "" ~ wearlog_past_off, #if wearlog_off is empty, wearlog_past_off is taken
+                                                           .default = wearlog_off),
+                           bag_combined = case_match(wearlog_bag,
+                                                     NA ~ wearlog_past_bag, #if wearlog_bag is NA, wearlog_past_bag is taken
+                                                     .default = wearlog_bag))%>%
+                    select(record_id, timestamp_combined, bag_combined) #select columns of interest
+
+```
+
+
+# Joining of the two datasets 
+Now we have a dataframe wearlog_bag_clean that contains timestamps for when the black bag was used or not used. We'd like to join this with the dataframe that contains the Wear log entries, i.e. wearlog_int_clean
+```{r pressure, echo=FALSE}
+
+##First, we need to do some renaming 
+bag_df <- wearlog_bag_clean %>%
+  rename(Id = record_id, Datetime = timestamp_combined, bag = bag_combined) %>%
+  mutate(Id = as.factor(Id),
+         Datetime = dmy_hm(Datetime, tz = "Europe/Berlin"))
+  
+
+#Now, we want to use left_join to merge the two dataframes 
+joined_df <- left_join(wrlg_int_states, bag_df, by = c("Datetime", "Id")) %>%
+    mutate(bag = ifelse(is.na(bag), 2, bag)) #all the "on" and "sleep" intervals have bag = NA (since no bag was used here), so we give it a value of 2 
+
+#Using the sc2interval function, we can turn the Datetime column of joined_df into an interval of time
+joined_int <- joined_df %>%
+  group_by(Id) %>% #need to do this to prevent that Datetime from 2 different participants get merged into the same interval
+  LightLogR::sc2interval(full = TRUE, length.restriction = 7 * (60*60*24)) %>%
+  ungroup()
+
+#NOTE: By setting full sc2interval(full = TRUE) we ensure that the last interval for each participant end on Sunday at 00:00, which is the last day. But there is also now a new NA interval for the first participation day, up until when participants come in the lab. This will be ignored when using interval2state in the next lines
+  
+#Now that the joined_df is ready, we are ready to merge it to the light logger dataset
+dataset.LL.joined <- dataset.LL.all %>% 
+  LightLogR::interval2state(joined_int) %>%
+  #note that only the State (not bag) will be carried over from the original dataset, so we re-apply the function to include the bag
+  LightLogR::interval2state(joined_int, State.colname = bag)
+
+```
+
+### Quality checks
+Because of the work-around in the code chunk above, I would like to double check that the coding of State and bag was integrated correctly
+```{r}
+perform_quality_checks <- function(df) {
+  for (i in 1:nrow(df)) {
+    if (df$State[i] == 'on' || df$State[i] == 'sleep') {
+      if (df$bag[i] != 2) {
+        stop(paste("Quality check failed at index", i, ": State is", df$State[i], "but bag is not 2"))
+      }
+    } else if (df$State[i] == 'off') {
+      if (df$bag[i] != 0 && df$bag[i] != 1) {
+        stop(paste("Quality check failed at index", i, ": State is off but bag is neither 0 nor 1"))
+      }
+    } else {
+      stop(paste("Invalid State value '", df$State[i], "' at index", i, ". State should be either 'on', 'off', or 'sleep'"))
+    }
+  }
+}
+
+tryCatch({
+  perform_quality_checks(dataset.LL.joined)
+  print("Quality checks passed successfully")
+}, error = function(e) {
+  print(e)
+})
+
+```
+
+## Why this code is problematic:
+This code must be revisited: we have now changed some entries in the wearlog files, e.g. we have deleted some entries or altered them (changed an on entry to an off entry). How to adjust the bag entries based on these changes?

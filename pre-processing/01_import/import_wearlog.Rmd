@@ -1,0 +1,45 @@
+---
+title: "import_wearlog"
+author: "Carolina Guidolin"
+date: "2024-06-10"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+#Note: run this script after import_LL
+
+# Importing Wear log files 
+Here, we import the raw data from the wear log
+
+```{r}
+filepath <- here("G:/cyepi/code/pre-processing/nonwear_detection/wearlog")
+
+# Get the files names from directory
+wearlogfiles = list.files(filepath, pattern="*.csv", full.names = TRUE)
+
+```
+
+## Coding of non-wear time according to the Wear log 
+Here we create States (using import_Statechanges) that code for the 3 most important information contained in the Wear log:
+1. When the light glasses were on,
+2. When the light glasses were off,
+3. When the light glasses were put off for sleep. 
+Note: Retrospective and real-time information are treated as equal for this step. 
+```{r pressure, echo=FALSE}
+wearlog_entries_raw <- 
+  #filenames:
+  wearlogfiles %>% 
+  #import_Statechanges from LightLogR to create states based on timestamps
+  LightLogR::import_Statechanges(
+    sep = ";", dec = ",", Datetime.format = "dmyHM", tz = "Europe/Berlin", 
+    Id.colname = record_id,
+    State.colnames = 
+      c("wearlog_on", "wearlog_off", "wearlog_past_on", "wearlog_past_off", "wearlog_bed", "wearlog_past_sleep"),
+    State.encoding = 
+      c("1", "0", "1", "0", "2", "2") #off coded as 0, on coded as 1, sleep coded as 2
+    ) 
+
+```

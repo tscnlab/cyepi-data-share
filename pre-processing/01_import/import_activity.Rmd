@@ -1,0 +1,53 @@
+---
+title: "import_activity"
+author: "Carolina Guidolin"
+date: "2024-07-15"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Here, we import the participants' activity recorded at the wrist level using the device ACtTrust2
+```{r}
+path <- here("G:/cyepi/code/pre-processing/nonwear_detection/acttrust2")
+tz <- "Europe/Berlin"
+
+files <- list.files(path, full.names = TRUE)
+#show how many files are listes
+length(files)
+
+pattern <- "^(\\d{3})"
+
+dataset.acttrust <- import$ActTrust(files, tz = tz, auto.id = pattern, dst_adjustment = TRUE)
+```
+```{r}
+#Adjust the dataset to only include times considered in the ActLumus device (see import_LL)
+dataset.acttrust.clean <- dataset.acttrust %>%
+  inner_join(filtered_time, by = "Id") %>%
+  filter(Datetime >= start, Datetime <= end) %>%
+  select(-start, -end)
+```
+
+```{r}
+dataset.LL.all.1 <- dataset.LL.all %>%
+  filter(!(Id == "202") & !(Id == "204")) %>% #eliminate these two Ids because files from acttrust are missing 
+  rename(timestamp = Datetime) #rename Datetime column so we do not get confused between the two files
+
+data.table::setDT(dataset.LL.all.1)[, join_date := timestamp] #convert to data.table and append original column that we want to keep
+data.table::setDT(dataset.acttrust.clean)[, join_date := Datetime] #convert to data.table and append original column that we want to keep
+
+
+#For each ActTrust file, find the nearest (in time) acttrust Datetime
+
+acttrust_lumus_join <- dataset.LL.all.1[dataset.acttrust.clean, on = .(Id, join_date), roll = "nearest"] %>% #Perform a left join of the two datasets using data.table
+  rename(actlumus_PIM = i.PIM, acttrust_PIM = PIM) 
+  
+#See the concordance between wrist and eye level activity
+ggplot(acttrust_lumus_join, aes(x = actlumus_PIM, y = acttrust_PIM)) +
+  geom_point()
+
+  
+```
+

@@ -1,0 +1,118 @@
+---
+title: "nonwear_source_fusion"
+author: "Carolina Guidolin"
+date: "2023-11-21"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+##Data import
+Here, we import the light logger data data for all participants.
+
+###Load in the necessary packages
+```{r}
+library(tidyverse)
+library(hms)
+library(here)
+library(scales)
+library(lubridate)
+library(LightLogR)
+library(ggpubr)
+```
+
+
+### Importing  actlumus data (light logger)
+This dataset contains information about activity (PIM), light levels (MEDI) and button presses (EVENT).
+```{r}
+Sys.setlocale("LC_TIME", "en_US.UTF-8") #needed to run this code to have the days displayed in English and not German
+
+path <- "G:/cyepi/code/pre-processing/nonwear_detection/actlumus"
+tz <- "Europe/Berlin"
+
+# Get a list of file paths in the specified directory
+actlumusfiles <- list.files(path, pattern = ".txt", full.names = TRUE)
+
+# Create an empty dataframe to store the combined data
+dataset.LL.all <- data.frame()
+
+# Iterate over each file and import data
+# Ensure that the datasets crossing from DST to ST on 29.10.2023 are adjusted for using dst_adjustment function 
+dataset.LL.all <- LightLogR::import$ActLumus(actlumusfiles, tz = tz, auto.id = "^(\\d{3})", dst_adjustment = TRUE)
+
+```
+
+## Adjustment of start and end times for each participant
+Every participant started at different times. We will have to specify start and end time manually. 
+Start times are taken as the first timestamp when the participant started the study. This is reported in the Wear log.
+End times are taken as the timestamp of "putting the light glasses back on" on the morning of the last day of the experiment, i.e. when participants had to return to the laboratory. In case this was missing, "data"out of bed" data from the sleep diary was used (this was the case for 4 participants), as this would be the closest approximation. For one participant (213), the data from the sleep diary was missing as well. Thus, the end time was determined as midnight of the last experimental day (Sunday).
+
+```{r}
+filtered_time <- data.frame(
+  Id = c("201", "202", "204", "205", "206", "208", "209", "210", "212", "213", "214", "215", "216", "218", "219", "221", "222", "223", "224", "225", "226", "227", "228", "229", "230", "231"),
+  start = as.POSIXct(c("2023-08-14 12:40:00", #201
+                       "2023-08-14 13:26:00", #202
+                       "2023-08-14 14:43:00", #204
+                       "2023-08-28 15:42:00", #205
+                       "2023-08-28 14:16:00", #206
+                       "2023-09-04 12:36:00", #208
+                       "2023-09-04 14:01:00", #209
+                       "2023-09-04 15:20:00", #210
+                       "2023-09-11 13:03:00", #212
+                       "2023-09-11 15:06:00", #213
+                       "2023-09-25 14:56:00", #214
+                       "2023-10-02 11:30:00", #215
+                       "2023-10-02 14:31:00", #216
+                       "2023-10-16 11:18:00", #218
+                       "2023-10-16 12:40:00", #219
+                       "2023-10-23 11:22:00", #221
+                       "2023-10-23 13:10:00", #222
+                       "2023-10-30 11:34:00", #223
+                       "2023-10-30 13:24:00", #224
+                       "2023-10-30 15:05:00", #225
+                       "2023-10-30 16:34:00", #226
+                       "2023-10-30 17:44:00", #227
+                       "2023-11-06 11:02:00", #228
+                       "2023-11-06 12:34:00", #229
+                       "2023-11-06 14:02:00", #230
+                       "2023-11-06 17:12:00"  #231
+                       )),    # Add start times
+  end = as.POSIXct(c("2023-08-21 07:31:00", #201
+                     "2023-08-21 07:23:00", #202
+                     "2023-08-21 08:59:00", #204
+                     "2023-09-04 07:28:00", #205
+                     "2023-09-04 08:08:00", #206
+                     "2023-09-11 07:30:00", #208
+                     "2023-09-11 07:45:00", #209
+                     "2023-09-11 06:16:00", #210 from sleep diary, out_ofbed
+                     "2023-09-18 06:01:00", #212 
+                     "2023-09-17 23:59:59", #213 midnight of previous day, because of missing data on final day 
+                     "2023-10-02 09:02:00", #214
+                     "2023-10-09 08:27:00", #215
+                     "2023-10-09 11:01:00", #216
+                     "2023-10-23 08:13:00", #218
+                     "2023-10-23 07:10:00", #219 from sleep diary, out_ofbed
+                     "2023-10-30 07:58:00", #221
+                     "2023-10-30 08:18:00", #222
+                     "2023-11-06 08:00:00", #223
+                     "2023-11-06 08:23:00", #224
+                     "2023-11-06 05:44:00", #225 from sleep diary, out_ofbed
+                     "2023-11-06 06:49:00", #226
+                     "2023-11-06 07:07:00", #227
+                     "2023-11-13 07:49:00", #228
+                     "2023-11-13 07:09:00", #229
+                     "2023-11-13 08:02:00", #230 from sleep diary, out_ofbed
+                     "2023-11-13 08:15:00" #231
+                     ))# Add end times
+)
+
+#Adjust the dataset 
+dataset.LL.all <- dataset.LL.all %>%
+  inner_join(filtered_time, by = "Id") %>%
+  filter(Datetime >= start, Datetime <= end) %>%
+  select(-start, -end)
+
+```
+
