@@ -11,6 +11,8 @@ This dataset was collected as part of an observational study on personal light e
 | Duration of experiment for each participant | N=7 days (Monday to Monday) |
 
 ## Measurement schedule
+![image info](C:\Users\cguidolin\Desktop\cyepi\materials)
+
 |**Read-out** |**Measurement modality** |**Sampling frequency** |**Timing of sampling** |**N per participant**|
 | - | :- | - | - | - |
 |**Objective individual light exposure** |Light logger |Continuous measurement  over 7 days |Every 10 seconds  |Approx. 10080 |
