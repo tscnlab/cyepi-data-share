@@ -11,7 +11,7 @@ This dataset was collected as part of an observational study on personal light e
 | Duration of experiment for each participant | N=7 days (Monday to Monday) |
 
 ## Measurement schedule
-![image info](C:\Users\cguidolin\Desktop\cyepi\materials)
+![alt text](C:\Users\cguidolin\Desktop\cyepi\materials)
 
 |**Read-out** |**Measurement modality** |**Sampling frequency** |**Timing of sampling** |**N per participant**|
 | - | :- | - | - | - |
