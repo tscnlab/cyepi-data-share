@@ -62,3 +62,27 @@ This folder contains individual-level data for N=26 participant, each stored in 
 | discharge/ | PID_VLSQ8_yyyymmdd.csv | Completed at discharge (Monday, day 8).  |  |  |  |
 | discharge/ | PID_feedback_yyyymmdd.csv | Completed at discharge (Monday, day 8).  |  |  |  |
 | discharge/ | PID_mTFA_yyyymmdd.csv | Completed at discharge (Monday, day 8).  |  |  |  |
+
+
+|**Read-out** |**Measurement modality** |**Sampling frequency** |**Timing of sampling** |**N per participant**|
+| - | :- | - | - | - |
+|**Objective individual light exposure** |Light logger |Continuous measurement  over 7 days |Every 10 seconds  |Approx. 10080 |
+|**Objective activity/rest** |Actimeter|Continuous measurement  over 7 days |Every 10 seconds |Approx. 10080 |
+|**Chronotype** |Munich  Chronotype Questionnaire (MCTQ,  circadian time)  and  Morning Evening Questionnaire (MEQ,  circadian preference) |1  measurement over 7 days |First  experimental day |1 |
+|**Subjective sleep** |Consensus  Sleep Diary (CSD) |7  measurements over 7 days |Every morning |7 |
+|**Subjective hourly light exposure and activities** |Modified  Harvard Light  Exposure Questionnaire (modified H-LEA) |7  measurements over 7 days |Every evening |7 |
+|**Subjective wellbeing** |WHO-5  wellbeing index (WHO-5) |7  measurements over 7 days |Every evening |7 |
+|**Exercise frequency and type** |Exercise log |7  measurements over 7 days |Every evening |7 |
+|**Subjective light exposure** |Modified  Harvard Light  Exposure Questionnaire (modified  H-LEA). Experience |24  measurements over 7 days |4 times/day |22 |
+||sampling:  punctual measurement  on participants’  current light conditions ||||
+| :- | - | :- | :- | :- |
+|**Subjective alertness** |Karolinska Sleepiness  Scale (KSS).  Experience sampling:  punctual measurement  on participants'  current light conditions |22  measurements over 7 days |4 times/day |22 |
+|**Subjective mood** |MoodZoom questionnaire |22  measurements over 7 days |4 times/day |22 |
+|**Experience log** |Custom-made questionnaire  and open-ended questions  about positive and negative experiences wearing  the  light logger |Continuous measurement  over 7 days |Throughout  the experiment |Depending  on participant |
+|**Wear log** |Custom-made questionnaire  about time  of  taking  the device  off  and putting it back on |Continuous measurement  over 7 days |Throughout  the experiment |Depending  on participant |
+|**Subjective light sensitivity**|Visual Light Sensitivity Questionnaire  8 (VLSQ-8) |1  measurement over 7 days |Last  experimental day |1 |
+|**User experience of wearing the light logger** |Open-ended questions |1  measurement over 7 days |Last  experimental day |1 |
+|**Sleep environment** |Assessment  of sleep  environment |1  measurement over 7 days |Last  experimental day |1 |
+||questionnaire (ASE) ||||
+|**Subjective light exposure** |Light  Exposure Behaviour Assessment (LEBA) |1  measurement over 7 days |Last  experimental day |1 |
+
