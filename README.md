@@ -60,7 +60,7 @@ This folder contains individual-level data for N=26 participant, each stored in 
 | **continuous/exercisediary/** | PID_exercisediary_yyyymmdd.csv | Custom made questionnaire on exercise. Completed daily in the evening |  |
 | **continuous/experiencelog/** | PID_experiencelog_yyyymmdd.csv | Custom made questionnaire about experiences wearing the light glasses. Completed any time participant had an experience to report (n**o restrictions). | Empty folder for PID 210 and 225 |
 | **continuous/mHLEA_digital/** | PID_mHLEA_digital_yyyymmdd.csv | Custom made questionnaire to test Daily in the evening |  |
-| **continuous/mHLEA_paper/** | PID_mHLEA_paper_yyyymmdd.xlsx | N/A. This was transcribed by the experimenter after study end for each participant.  | For PID 218 to 231, this includes not only light exposure but also hourly self-reported activity. |
+| **continuous/mHLEA_paper/** | PID_mHLEA_paper_yyyymmdd.xlsx | N/A. This was transcribed by the experimenter after study end for each participant.  | For PID 201 to 216, this includes only subjective light exposure (see questionnaires-coding: mHLEA_v1). For PID 218 to 231, this includes not only light exposure but also hourly self-reported activity (see questionnaires-coding: mHLEA_activity_v2). |
 | **continuous/mHLEA_paper/upload/** | jpg, png or heic files from participants phones that were sent to experimenter during the week, later transcribed into the PID_mHLEA_paper_yyyymmdd.xlsx file | Daily in the evening | This folder is only present for PID 216 to 231. |
 | **continuous/sleepdiary/** | PID_sleepdiary_yyyymmdd.csv | Daily in the morning  |  |
 | **continuous/wearlog/** | PID_wearlog_yyyymmdd.csv | Any time participant had removed or started wearing the light logger |  |
